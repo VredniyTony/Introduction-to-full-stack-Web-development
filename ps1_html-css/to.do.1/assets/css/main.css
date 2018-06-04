@@ -1,0 +1,44 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.header{
+    width: 100%;
+    min-height: 100px;
+    background-color: cornflowerblue;
+}
+
+.container{
+    flex: 1;
+    background-color: black;
+    height: auto;
+    width: 100%;
+}
+
+.content {
+    float: left;
+    width: 60%;
+    height: 100%;
+    background-color: gold;
+}
+
+.menu, .call-to-action{
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: lightgoldenrodyellow;
+}
+
+.footer {
+    flex-shrink: 0;
+    width: 100%;
+    height: 50px;
+    background-color: aqua;
+}
+
+.text{
+    text-align: center;
+}
