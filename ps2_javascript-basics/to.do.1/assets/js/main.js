@@ -4,13 +4,12 @@ function show(state, element) {
 }
 
 function clearDiv(taskForClear){
-    const elem = document.getElementById(taskForClear);
-    elem !== null ? (elem.remove()):(null);
+    const ELEM = document.getElementById(taskForClear);
+    ELEM !== null ? (ELEM.remove()):(null);
 }
 
-function task1(event) {
-    event.preventDefault();
-    const task1Res = document.getElementById('task1result');
+function task1() {
+    const TASK1RES = document.getElementById('task1result');
     clearDiv('divTask1Result');
 
     let sum = -1000;
@@ -18,44 +17,38 @@ function task1(event) {
         sum = sum + i;
     }
 
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask1Result');
-    task1Res.appendChild(result);
-    result.innerText = `Результат: ${sum}`;
-    return false;
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask1Result');
+    TASK1RES.appendChild(RESULT);
+    RESULT.innerText = `Результат: ${sum}`;
 }
 
-function task2(event) {
-    event.preventDefault();
-    const task2Res = document.getElementById('task2result');
+function task2() {
+    const TASK2RES = document.getElementById('task2result');
     clearDiv('divTask2Result');
 
     let sum = 0;
     let tempNum;
     for (let i = -1000; i <= 1000; i++) {
-        tempNum = i % 10;
-        if ((tempNum === 2) || (tempNum === -2) ||
-            (tempNum === 3) || (tempNum === -3) ||
-            (tempNum === 7) || (tempNum === -7)) {
+        tempNum = Math.abs(i % 10);
+        if ((tempNum === 2) || (tempNum === 3) || (tempNum === 7)) {
             sum = sum + i;
         }
     }
 
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask2Result');
-    task2Res.appendChild(result);
-    result.innerText = `Результат: ${sum}`;
-    return false;
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask2Result');
+    TASK2RES.appendChild(RESULT);
+    RESULT.innerText = `Результат: ${sum}`;
 }
 
-function task3(event) {
-    event.preventDefault();
-    const task3Res = document.getElementById('task3result');
+function task3() {
+    const TASK3RES = document.getElementById('task3result');
     clearDiv('divTask3Result');
 
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask3Result');
-    task3Res.appendChild(result);
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask3Result');
+    TASK3RES.appendChild(RESULT);
 
     let i = 0, star = '', tempStar = '*';
     while(i <= 50){
@@ -63,69 +56,71 @@ function task3(event) {
         tempStar += '*';
         i++;
     }
-    result.innerHTML = star ;
-    return false;
+    RESULT.innerHTML = star ;
 }
 
 function task4(event) {
     event.preventDefault();
-    const task4Res = document.getElementById('task4result');
-    let inputSeconds = document.getElementById('task4Input').value;
+    const TASK4RES = document.getElementById('task4result');
+    const INPUT_SECONDS = document.getElementById('task4Input').value;
     clearDiv('divTask4Result');
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask4Result');
-    task4Res.appendChild(result);
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask4Result');
+    TASK4RES.appendChild(RESULT);
 
     const H = 3600, M = 60;
-    let hours = ~~(inputSeconds / H);
-    let minutes = ~~((inputSeconds - (H * hours)) / M);
-    let seconds = inputSeconds - (H * hours + M * minutes);
+    let hours = ~~(INPUT_SECONDS / H);
+    let minutes = ~~((INPUT_SECONDS - (H * hours)) / M);
+    let seconds = INPUT_SECONDS - (H * hours + M * minutes);
 
-    hours < 10 ? (hours = '0'+hours):hours;
-    minutes < 10 ? (minutes = '0'+minutes):minutes;
-    seconds < 10 ? (seconds = '0'+seconds):seconds;
+    hours = hours.toString().padStart(2, '0');
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
 
-    result.innerText = `Результат: ${hours}:${minutes}:${seconds}`;
+    RESULT.innerText = `Результат: ${hours}:${minutes}:${seconds}`;
     return false;
 }
 
 function task5(event) {
     event.preventDefault();
-    const task5Res = document.getElementById('task5result');
-    let inputNumber = parseFloat(document.getElementById('task5Input').value);
+    const TASK5RES = document.getElementById('task5result');
+    const INPUT_NUMBER = parseFloat(document.getElementById('task5Input').value);
     clearDiv('divTask5Result');
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask5Result');
-    task5Res.appendChild(result);
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask5Result');
+    TASK5RES.appendChild(RESULT);
     let text = ' ';
 
-    let tmpNumber = inputNumber % 10;
-    tmpNumber === 0 ? (text = ' лет'):(null);
-    tmpNumber === 1 ? (text = ' год'):(null);
-    tmpNumber > 1 && tmpNumber < 5 ? (text = ' года'):(null);
-    tmpNumber > 4 && tmpNumber < 10 ? (text = ' лет'):(null);
-    inputNumber > 4  && inputNumber < 20 ? (text = ' лет'):(null);
-    result.innerText = `Результат: ${inputNumber} ${text}`;
+    let tmpNumber = INPUT_NUMBER % 10;
+    if (tmpNumber === 0 || (tmpNumber > 4 && tmpNumber < 10) || (INPUT_NUMBER > 4  && INPUT_NUMBER < 20)) {
+      text = ' лет'
+    } else if (tmpNumber === 1){
+      text = ' год'
+    } else if (tmpNumber > 1 && tmpNumber < 5){
+      text = ' года'
+    }
+
+    RESULT.innerText = `Результат: ${INPUT_NUMBER} ${text}`;
     return false;
 }
 
 function task6(event) {
     event.preventDefault();
-    const task6Res = document.getElementById('task6result');
-    let inputFirst = document.getElementById('task6InputFirst').value;
-    let inputSecond = document.getElementById('task6InputSecond').value;
+    const TASK6RES = document.getElementById('task6result');
+    const INPUT_FIRST = document.getElementById('task6InputFirst').value;
+    const INPUT_SECOND = document.getElementById('task6InputSecond').value;
     clearDiv('divTask6Result');
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask6Result');
-    task6Res.appendChild(result);
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask6Result');
+    TASK6RES.appendChild(RESULT);
 
-    let divideInputFirst = inputFirst.split('T');
+    let divideInputFirst = INPUT_FIRST.split('T');
     let dataFirst = divideInputFirst[0].split('-');
     let timeFirst = divideInputFirst[1].split(':');
     isNaN(parseInt(timeFirst[2])) ? (timeFirst[2] = 0):(null);
     let dt1 = new Date(dataFirst[0], dataFirst[1], dataFirst[2], timeFirst[0], timeFirst[1], timeFirst[2]);
 
-    let divideInputSecond = inputSecond.split('T');
+    let divideInputSecond = INPUT_SECOND.split('T');
     let dataSecond = divideInputSecond[0].split('-');
     let timeSecond = divideInputSecond[1].split(':');
     isNaN(parseInt(timeSecond[2])) ? (timeSecond[2] = 0):(null);
@@ -145,60 +140,61 @@ function task6(event) {
     let minutes = ~~((diffSeconds - ((years * SYEARS)+(months * SMONTH)+(days * SDAYS)+(hours * SHOURS)))/SMINUTES);/*60 sec in minutes*/
     let seconds = (diffSeconds - ((years * SYEARS)+(months * SMONTH)+(days * SDAYS)+(hours * SHOURS)+(minutes * SMINUTES)));
 
-    result.innerText = `Результат: ${years} years ${months} months ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+    RESULT.innerText = `Результат: ${years} years ${months} months ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
     return false;
 }
 
 function task7(event) {
     event.preventDefault();
-    const task7Res = document.getElementById('task7result');
-    let inputDate = document.getElementById('task7Input').value;
+    const TASK7RES = document.getElementById('task7result');
+    const INPUT_DATE = document.getElementById('task7Input').value;
     clearDiv('divTask7Result');
-    let date = inputDate.split("-");
-    let result = document.createElement('img');
-    result.setAttribute('id', 'divTask7Result');
-    task7Res.appendChild(result);
+    let date = INPUT_DATE.split("-");
+    const RESULT = document.createElement('img');
+    RESULT.setAttribute('id', 'divTask7Result');
+    TASK7RES.appendChild(RESULT);
 
     date[1] = parseInt(date[1]);
     date[2] = parseInt(date[2]);
 
-    ((date[1] ===12 && date[2]>=22) || (date[1] ===0o1 && date[2]<=20)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/capricorn.jpg')):(null);
-    ((date[1] ===0o1 && date[2]>=21) || (date[1] ===0o2 && date[2]<=20)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/aquarius.jpg')):(null);
-    ((date[1] ===0o2 && date[2]>=21) || (date[1] ===0o3 && date[2]<=20)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/fish.jpg')):(null);
-    ((date[1] ===0o3 && date[2]>=21) || (date[1] ===0o4 && date[2]<=20)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/aries.jpg')):(null);
-    ((date[1] ===0o4 && date[2]>=21) || (date[1] ===0o5 && date[2]<=20)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/taurus.jpg')):(null);
-    ((date[1] ===0o5 && date[2]>=21) || (date[1] ===0o6 && date[2]<=21)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/twin.jpg')):(null);
-    ((date[1] ===0o6 && date[2]>=22) || (date[1] ===0o7 && date[2]<=22)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/cancer.jpg')):(null);
-    ((date[1] ===0o7 && date[2]>=23) || (date[1] ===8 && date[2]<=23)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/lion.jpg')):(null);
-    ((date[1] ===8 && date[2]>=24) || (date[1] ===9 && date[2]<=23)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/virgo.jpg')):(null);
-    ((date[1] ===9 && date[2]>=24) || (date[1] ===10 && date[2]<=23)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/libra.jpg')):(null);
-    ((date[1] ===10 && date[2]>=24) || (date[1] ===11 && date[2]<=22)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/scorpio.jpg')):(null);
-    ((date[1] ===11 && date[2]>=23) || (date[1] ===12 && date[2]<=21)) ?
-        (result.setAttribute('src', 'assets/images/zodiac/sagittarius.jpg')):(null);
+    if ((date[1] ===12 && date[2]>=22) || (date[1] ===1 && date[2]<=20)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/capricorn.jpg')
+    } else if ((date[1] ===1 && date[2]>=21) || (date[1] ===2 && date[2]<=20)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/aquarius.jpg');
+    } else if ((date[1] ===2 && date[2]>=21) || (date[1] ===3 && date[2]<=20)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/fish.jpg')
+    } else if ((date[1] ===3 && date[2]>=21) || (date[1] ===4 && date[2]<=20)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/aries.jpg')
+    } else if ((date[1] ===4 && date[2]>=21) || (date[1] ===5 && date[2]<=20)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/taurus.jpg')
+    } else if ((date[1] ===5 && date[2]>=21) || (date[1] ===6 && date[2]<=21)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/twin.jpg')
+    } else if ((date[1] ===6 && date[2]>=22) || (date[1] ===7 && date[2]<=22)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/cancer.jpg')
+    } else if ((date[1] ===7 && date[2]>=23) || (date[1] ===8 && date[2]<=23)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/lion.jpg')
+    } else if ((date[1] ===8 && date[2]>=24) || (date[1] ===9 && date[2]<=23)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/virgo.jpg')
+    } else if ((date[1] ===9 && date[2]>=24) || (date[1] ===10 && date[2]<=23)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/libra.jpg')
+    } else if ((date[1] ===10 && date[2]>=24) || (date[1] ===11 && date[2]<=22)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/scorpio.jpg')
+    } else if ((date[1] ===11 && date[2]>=23) || (date[1] ===12 && date[2]<=21)) {
+      RESULT.setAttribute('src', 'assets/images/zodiac/sagittarius.jpg')
+    }
     return false;
 }
 
 function task8(event) {
     event.preventDefault();
-    const task8Res = document.getElementById('task8result');
-    let inputElement = document.getElementById('task8Input').value;
+    const TASK8RES = document.getElementById('task8result');
+    const INPUT_ELEMENT = document.getElementById('task8Input').value;
     clearDiv('divTask8Result');
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask8Result');
-    task8Res.appendChild(result);
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask8Result');
+    TASK8RES.appendChild(RESULT);
 
-    let size = inputElement.split("x");
+    let size = INPUT_ELEMENT.split("x");
     let tmpCol = 'white', tmpRow = "white";
     let chessSize = 480;
 
@@ -210,19 +206,16 @@ function task8(event) {
 
     for (let j = 0; j < size[1]; j++) {
         let flexDivRow = document.createElement('div');
-        result.appendChild(flexDivRow);
+        RESULT.appendChild(flexDivRow);
         flexDivRow.setAttribute('class', 'flexDivRow');
         for (let i = 0; i < size[0]; i++) {
             let flexDivCol = document.createElement('div');
             flexDivRow.appendChild(flexDivCol);
             flexDivCol.setAttribute('class', 'flexDivCol');
-            if (tmpCol === "white") {
-                flexDivCol.setAttribute('style', 'background-color: white;');
-                tmpCol = "black";
-            } else {
-                flexDivCol.setAttribute('style', 'background-color: black;');
-                tmpCol = "white";
-            }
+
+            flexDivCol.setAttribute('style', 'background-color:' + tmpCol);
+            tmpCol = (tmpCol === "white") ? 'black':'white';
+
             flexDivCol.style.width = chessSize + "px";
             flexDivCol.style.height = chessSize + "px";
         }
@@ -234,71 +227,70 @@ function task8(event) {
 
 function task9(event) {
     event.preventDefault();
-    const task9Res = document.getElementById('task9result');
-    let inputEntrance = document.getElementById('task9InputEntrance').value;
-    let inputApartments = document.getElementById('task9InputApartments').value;
-    let inputFloor = document.getElementById('task9InputFloor').value;
-    let inputApartment = document.getElementById('task9InputApartment').value;
+    const TASK9RES = document.getElementById('task9result');
+    const INPUT_ENTRANCE = document.getElementById('task9InputEntrance').value;
+    const INPUT_APARTMENTS = document.getElementById('task9InputApartments').value;
+    const INPUT_FLOOR = document.getElementById('task9InputFloor').value;
+    const INPUT_APARTMENT = document.getElementById('task9InputApartment').value;
     clearDiv('divTask9Result');
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask9Result');
-    task9Res.appendChild(result);
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask9Result');
+    TASK9RES.appendChild(RESULT);
 
-    let sumApartments = inputEntrance * inputApartments * inputFloor;
-    if (inputApartment > sumApartments) {
-        result.innerText = "Вы живете в будке!";
+    let sumApartments = INPUT_ENTRANCE * INPUT_APARTMENTS * INPUT_FLOOR;
+    if (INPUT_APARTMENT > sumApartments) {
+        RESULT.innerText = "Вы живете в будке!";
         return;
     }
 
     let entrance = 0;
-    let sumApartmentsInEntrance = inputApartments * inputFloor;
-    for(let i = 1; i <= inputEntrance; i++){
-        if((i-1) * sumApartmentsInEntrance < inputApartment && i * sumApartmentsInEntrance >= inputApartment){
+    let sumApartmentsInEntrance = INPUT_APARTMENTS * INPUT_FLOOR;
+    for(let i = 1; i <= INPUT_ENTRANCE; i++){
+        if((i-1) * sumApartmentsInEntrance < INPUT_APARTMENT && i * sumApartmentsInEntrance >= INPUT_APARTMENT){
             entrance = i;
         }
     }
 
     let floor = 0, tmpFloor = sumApartmentsInEntrance * (entrance - 1);
-    for(let i = 1; i <= inputFloor; i++){
-        if(tmpFloor < inputApartment && (+tmpFloor + +inputApartments) >= inputApartment){
+    for(let i = 1; i <= INPUT_FLOOR; i++){
+        if(tmpFloor < INPUT_APARTMENT && (+tmpFloor + +INPUT_APARTMENTS) >= INPUT_APARTMENT){
             floor = i;
             break;
         } else {
-            tmpFloor = +tmpFloor + +inputApartments;
+            tmpFloor = +tmpFloor + +INPUT_APARTMENTS;
         }
     }
-    result.innerText = `Результат: подъезд - ${entrance}, этаж - ${floor}`;
+    RESULT.innerText = `Результат: подъезд - ${entrance}, этаж - ${floor}`;
     return false;
 }
 
 function task10(event) {
     event.preventDefault();
-    const task10Res = document.getElementById('task10result');
-    let inputNumber = document.getElementById('task10Input').value;
+    const TASK10RES = document.getElementById('task10result');
+    const INPUT_NUMBER = document.getElementById('task10Input').value;
     clearDiv('divTask10Result');
-    let result = document.createElement('p');
-    result.setAttribute('id', 'divTask10Result');
-    task10Res.appendChild(result);
+    const RESULT = document.createElement('p');
+    RESULT.setAttribute('id', 'divTask10Result');
+    TASK10RES.appendChild(RESULT);
 
-    let numbers = inputNumber.split("");
+    let numbers = INPUT_NUMBER.split("");
     let sum = 0, i = 0;
 
     (numbers[0] === '-') ? (i = 1):(null);
     for(i; i < numbers.length; i++){
         (numbers[i] !== '.') ? (sum += parseInt(numbers[i])):(null);
     }
-    result.innerText = `Сумма чисел = ${sum}`;
+    RESULT.innerText = `Сумма чисел = ${sum}`;
     return false;
 }
 
-function task11(event) {
-    event.preventDefault();
-    const task11Res = document.getElementById('task11result');
+function task11() {
+    const TASK11RES = document.getElementById('task11result');
     let inputLinks = document.getElementById('task11Input');
     clearDiv('divTask11Result');
-    let result = document.createElement('div');
-    result.setAttribute('id', 'divTask11Result');
-    task11Res.appendChild(result);
+    const RESULT = document.createElement('div');
+    RESULT.setAttribute('id', 'divTask11Result');
+    TASK11RES.appendChild(RESULT);
 
     let links = inputLinks.value
         .split(/[\s,]/)
@@ -307,6 +299,5 @@ function task11(event) {
         .sort()
         .reduce((ul,link)=>
             ul + `<li><a href="//${link}">${link}</a></li>`, '');
-    result.innerHTML = links;
-    return false;
+    RESULT.innerHTML = links;
 }

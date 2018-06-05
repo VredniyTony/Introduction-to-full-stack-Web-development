@@ -15,26 +15,26 @@ const ATM = {
 
     //logs
     messages: [
-     //0
-      {logs: `You are not logined`},
+      //0
+      `You are not logined`,
       //1
-      {logs:`You are enterred incorrect login`},
+      `You are enterred incorrect login`,
       //2
-      {logs:`You are enterred incorrect pin`},
+      `You are enterred incorrect pin`,
       //3
-      {logs:`You are authorized`},
+      `You are authorized`,
       //4
-      {logs:`You are not `},
+      `You are not `,
       //5
-      {logs:`You are already logined`},
+      `You are already logined`,
       //6
-      {logs:`You are haven't enough money`},
+      `You are haven't enough money`,
       //7
-      {logs:`ATM is haven't enough money`},
+      `ATM is haven't enough money`,
       //8
-      {logs:`Incorrect input data`},
+      `Incorrect input data`,
       //9
-      {logs:`You are logout`},
+      `You are logout`
     ],
 
     //check user validity
@@ -43,13 +43,14 @@ const ATM = {
         this.report_log.push(`${new Date()} User not logined`)
         console.log(this.messages[0]);
         return false;
-      } else if (this.current_type !== user || user !== "0") {
+      } else if (user !== this.current_type) {
         this.report_log.push(`${new Date()} ${this.current_user.number} blocked using unaccess function`)
         console.log(`${this.messages[4]} ${user}`);
         return false;
-      } else {
+      } else if (user === " "){
         return true;
       }
+      return true;
     },
 
     // authorization
@@ -144,14 +145,14 @@ const ATM = {
     },
     // log out
     logout: function() {
-      if (this.check_user(" ")) {
+      if (!this.check_user(this.current_type)) {
         return;
       } else {
         this.is_auth = false;
-        this.current_user = false;
         let tmp_current_user = this.current_user.number;
+        this.current_user = false;
         this.current_type = false;
-        this.report_log.push(`${new Date()} ${this.current_user.number} logout`)
+        this.report_log.push(`${new Date()} ${tmp_current_user} logout`)
         delete tmp_current_user;
         console.log(this.messages[9]);
       }
