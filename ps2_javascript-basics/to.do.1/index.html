@@ -1,263 +1,174 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang = 'ru'>
 <head>
-    <meta charset="UTF-8">
-    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="assets/css/main.css">
-    <script charset="UTF-8" lang="ru" src="assets/js/main.js"></script>
+    <meta charset = 'UTF-8'>
+    <link type = 'text/css' rel = 'stylesheet' href = 'assets/css/reset-css.css'>
+    <link type = 'text/css' rel = 'stylesheet' href = 'assets/css/main.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script charset = 'UTF-8' lang = 'ru' src = 'assets/js/main.js'></script>
     <title>WD_PS2 Javascript</title>
 </head>
-<div id="wrap"></div>
-</div>
-<div class="header">
-    <div class="headerContainer">
-        <img id="logo" src="assets/images/logo.jpg" about="Ivanov Anton">
-        <div id="headerText">
+<body>
+<div class = 'header'>
+    <div class = 'headerContainer'>
+        <img id = 'logo' src = 'assets/images/logo.jpg' about = 'Ivanov Anton'>
+        <div id = 'headerText'>
             <h1>Домашняя работa "WD_PS2 Javascript (Basics)"</h1>
         </div>
     </div>
 </div>
-<div class="content">
-    <div class="contentContainer">
-        <!--task1-->
-        <div id="task1Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task1Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Сумма чисел от -1000 до 1000:</p>
-                <div class="buttons">
-                    <button class ="taskButton" type="button" onclick="task1(event)">Result</button>
-                    <button class ="clearButton" type="button" onclick="clearDiv('divTask1Result')">Clear</button>
-                </div>
-                <div id="task1result"></div>
-            </div>
+<div class = 'content'>
+    <div class = 'contentContainer'>
+      <!--task1-->
+      <button id = 'task1_button' type = 'button'>Сумма чисел от -1000 до 1000</button>
+      <div id = 'task1_dropdown' class = 'task'>
+        <p>Сумма чисел от -1000 до 1000:</p>
+        <div class = 'buttons'>
+            <button class = 'taskButton' type = 'button' onclick = 'task1()'>Result</button>
+            <button class = 'clearButton' type = 'button' onclick = "clearDiv('divTask1Result')">Clear</button>
         </div>
-        <!--task2-->
-        <div id="task2Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task2Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Сумма чисел от -1000 до 1000, суммируя только числа которые заканчиваются на 2,3, и 7:</p>
-                <div class="buttons">
-                    <button class ="taskButton" type="button" onclick="task2(event)">Result</button>
-                    <button class ="clearButton" type="button" onclick="clearDiv('divTask2Result')">Clear</button>
-                </div>
-                <div id="task2result"></div>
-            </div>
+        <div id = 'task1result' class = 'result'></div>
+      </div>
+      <!--task2-->
+      <button id = 'task2_button' type = 'button'>Сумма чисел от -1000 до 1000, которые заканчиваются на 2,3, и 7</button>
+      <div id = 'task2_dropdown' class = 'task'>
+        <p>Сумма чисел от -1000 до 1000, суммируя только числа которые заканчиваются на 2,3, и 7:</p>
+        <div class="buttons">
+            <button class ="taskButton" type="button" onclick="task2(event)">Result</button>
+            <button class ="clearButton" type="button" onclick="clearDiv('divTask2Result')">Clear</button>
         </div>
-        <!--task3-->
-        <div id="task3Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task3Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Результат:</p>
-                <div class="buttons">
-                    <button class ="taskButton" type="button" onclick="task3(event)">Result</button>
-                    <button class ="clearButton" type="button" onclick="clearDiv('divTask3Result')">Clear</button>
-                </div>
-                <div id="task3result"></div>
-            </div>
+        <div id="task2result" class = 'result'></div>
+      </div>
+      <!--task3-->
+      <button id = 'task3_button' type = 'button'>Вывести на страницу список из 50 элементо</button>
+      <div id = 'task3_dropdown' class = 'task'>
+        <p>Результат:</p>
+        <div class="buttons">
+            <button class ="taskButton" type="button" onclick="task3(event)">Result</button>
+            <button class ="clearButton" type="button" onclick="clearDiv('divTask3Result')">Clear</button>
         </div>
-        <!--task4-->
-        <div id="task4Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task4Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Введите время в секундах:</p>
-                <form onsubmit="task4(event)">
-                    <input type="number" required pattern="[0-9]{12}" id="task4Input" min = "0"/>
-                    <div class="buttons">
-                        <button class ="taskButton" type="submit">Result</button>
-                        <button class ="clearButton" type="button" onclick="clearDiv('divTask4Result')">Clear</button>
-                    </div>
-                </form>
-                <div id="task4result"></div>
+        <div id="task3result" class = 'result'></div>
+      </div>
+      <!--task4-->
+      <button id = 'task4_button' type = 'button'>Перевести секунды в формат: hh:mm:ss</button>
+      <div id = 'task4_dropdown' class = 'task'>
+        <p>Введите время в секундах:</p>
+        <form onsubmit="task4(event)" class = 'task_form'>
+            <input type="number" required pattern="[0-9]{12}" id="task4Input" min = "0"/>
+            <div class="buttons">
+                <button class ="taskButton" type="submit">Result</button>
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask4Result')">Clear</button>
             </div>
-        </div>
-        <!--task5-->
-        <div id="task5Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task5Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Возраст:</p>
-                <form onsubmit="task5(event)">
-                    <input type="number" required pattern="[0-9]{12}" id="task5Input" min="0">
-                    <div class="buttons">
-                        <button class ="taskButton" type="submit">Result</button>
-                        <button class ="clearButton" type="button" onclick="clearDiv('divTask5Result')">Clear</button>
-                    </div>
-                </form>
-                <div id="task5result"></div>
+        </form>
+        <div id="task4result" class = 'result'></div>
+      </div>
+      <!--task5-->
+      <button id = 'task5_button' type = 'button'>Для указанного возраста вывести фразу вида "22 года"</button>
+      <div id = 'task5_dropdown' class = 'task'>
+        <p>Возраст:</p>
+        <form onsubmit="task5(event)"  class = 'task_form'>
+            <input type="number" required pattern="[0-9]{12}" id="task5Input" min="0">
+            <div class="buttons">
+                <button class ="taskButton" type="submit">Result</button>
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask5Result')">Clear</button>
             </div>
-        </div>
-        <!--task6-->
-        <div id="task6Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task6Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Первая дата:</p>
-                <input type=datetime-local id="task6InputFirst" value="2000-01-01T00:00:00" step="1">
-                <p>Вторая дата:</p>
-                <input type=datetime-local id="task6InputSecond" value="2000-01-01T00:00:00" step="1">
-                <div class="buttons">
-                    <button class ="taskButton" type="button" onclick="task6(event)">Result</button>
-                    <button class ="clearButton" type="button" onclick="clearDiv('divTask6Result')">Clear</button>
-                </div>
-                <div id="task6result"></div>
+        </form>
+        <div id="task5result" class = 'result'></div>
+      </div>
+      <!--task6-->
+      <button id = 'task6_button' type = 'button'>Вычислить промежуток времени между датами</button>
+      <div id = 'task6_dropdown' class = 'task'>
+        <form  class = 'task_form'>
+          <p>Первая дата:</p>
+          <input type=datetime-local id="task6InputFirst" value="2000-01-01T00:00:00" step="1">
+          <p>Вторая дата:</p>
+          <input type=datetime-local id="task6InputSecond" value="2000-01-01T00:00:00" step="1">
+            <div class="buttons">
+                <button class ="taskButton" type="button" onclick="task6(event)">Result</button>
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask6Result')">Clear</button>
             </div>
-        </div>
-        <!--task7-->
-        <div id="task7Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task7Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Введите дату (YYYY-MM-DD):</p>
-                <form onsubmit="task7(event)">
-                    <input type="text"  id="task7Input"
-                           pattern="^(?:(?:(?:(?:(?:[1-9]\d)(?:0[48]|[2468][048]|[13579][26])|(?:(?:[2468][048]|[13579][26])00))(\/|-|\.)(?:0?2\1(?:29)))|(?:(?:[1-9]\d{3})(\/|-|\.)(?:(?:(?:0?[13578]|1[02])\2(?:31))|(?:(?:0?[13-9]|1[0-2])\2(?:29|30))|(?:(?:0?[1-9])|(?:1[0-2]))\2(?:0?[1-9]|1\d|2[0-8])))))$"
-                           title = "input correct data" required>
-                    <div class="buttons">
-                        <button class ="taskButton" type="submit">Result</button>
-                        <button class ="clearButton" type="button" onclick="clearDiv('divTask7Result')">Clear</button>
-                    </div>
-                </form>
-                <div id="task7result"></div>
+        </form>
+        <div id="task6result" class = 'result'></div>
+      </div>
+      <!--task7-->
+      <button id = 'task7_button' type = 'button'>Определить знак зодиака</button>
+      <div id = 'task7_dropdown' class = 'task'>
+        <p>Введите дату (YYYY-MM-DD):</p>
+        <form onsubmit="task7(event)" class = 'task_form'>
+            <input type="text"  id="task7Input"
+                   pattern="^(?:(?:(?:(?:(?:[1-9]\d)(?:0[48]|[2468][048]|[13579][26])|(?:(?:[2468][048]|[13579][26])00))(\/|-|\.)(?:0?2\1(?:29)))|(?:(?:[1-9]\d{3})(\/|-|\.)(?:(?:(?:0?[13578]|1[02])\2(?:31))|(?:(?:0?[13-9]|1[0-2])\2(?:29|30))|(?:(?:0?[1-9])|(?:1[0-2]))\2(?:0?[1-9]|1\d|2[0-8])))))$"
+                   title = "input correct data" required>
+            <div class="buttons">
+                <button class ="taskButton" type="submit">Result</button>
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask7Result')">Clear</button>
             </div>
-        </div>
-        <!--task8-->
-        <div id="task8Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task8Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Размер доски(**х**):</p>
-                <form onsubmit="task8(event)">
-                    <input type="text" pattern="\d{1,2}[x]\d{1,2}" title = "input max board 99x99" id="task8Input" required/>
-                    <div class="buttons">
-                        <button class ="taskButton" type="submit" >Result</button>
-                        <button class ="clearButton" type="button" onclick="clearDiv('divTask8Result')">Clear</button>
-                    </div>
-                </form>
-                <div id="task8result"></div>
+        </form>
+        <div id="task7result" class = 'result'></div>
+      </div>
+      <!--task8-->
+      <button id = 'task8_button' type = 'button'>Вывести шахматную доску</button>
+      <div id = 'task8_dropdown' class = 'task'>
+        <p>Размер доски(**х**):</p>
+        <form onsubmit="task8(event)" class = 'task_form'>
+            <input type="text" pattern="\d{1,2}[x]\d{1,2}" title = "input max board 99x99" id="task8Input" required/>
+            <div class="buttons">
+                <button class ="taskButton" type="submit" >Result</button>
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask8Result')">Clear</button>
             </div>
-        </div>
-        <!--task9-->
-        <div id="task9Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task9Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <form onsubmit="task9(event)">
-                    <p>Количество подъездов:</p>
-                    <input type="number" required pattern="[0-9]{,10}" id="task9InputEntrance" min="1"/>
-                    <p>Квартир на пролете:</p>
-                    <input type="number" required pattern="[0-9]{,10}" id="task9InputApartments" min="1"/>
-                    <p>Количество этажей:</p>
-                    <input type="number" required pattern="[0-9]{,10}" id="task9InputFloor" min="1"/>
-                    <p>Номер квартиры:</p>
-                    <input type="number" required pattern="[0-9]{,10}" id="task9InputApartment" min="1"/>
-                    <div class="buttons">
-                        <button class ="taskButton" type="submit" >Result</button>
-                        <button class ="clearButton" type="button" onclick="clearDiv('divTask9Result')">Clear</button>
-                    </div>
-                </form>
-                <div id="task9result"></div>
+        </form>
+        <div id="task8result" class = 'result'></div>
+      </div>
+      <!--task9-->
+      <button id = 'task9_button' type = 'button'>Определить номер подъезда и этаж по номеру квартиры</button>
+      <div id = 'task9_dropdown' class = 'task'>
+        <form onsubmit="task9(event)" class = 'task_form'>
+            <p>Количество подъездов:</p>
+            <input type="number" required pattern="[0-9]{,10}" id="task9InputEntrance" min="1"/>
+            <p>Квартир на пролете:</p>
+            <input type="number" required pattern="[0-9]{,10}" id="task9InputApartments" min="1"/>
+            <p>Количество этажей:</p>
+            <input type="number" required pattern="[0-9]{,10}" id="task9InputFloor" min="1"/>
+            <p>Номер квартиры:</p>
+            <input type="number" required pattern="[0-9]{,10}" id="task9InputApartment" min="1"/>
+            <div class="buttons">
+                <button class ="taskButton" type="submit" >Result</button>
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask9Result')">Clear</button>
             </div>
-        </div>
-        <!--task10-->
-        <div id="task10Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task10Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Введите число:</p>
-                <form onsubmit="task10(event)">
-                    <input type="number" required pattern="^[-+]?[0-9]+?(\.[0-9]$)" id="task10Input" step = any>
-                    <div class="buttons">
-                        <button class ="taskButton" type="submit">Result</button>
-                        <button class ="clearButton" type="button" onclick="clearDiv('divTask10Result')">Clear</button>
-                    </div>
-                </form>
-                <div id="task10result"></div>
+        </form>
+        <div id="task9result" class = 'result'></div>
+      </div>
+      <!--task10-->
+      <button id = 'task10_button' type = 'button'>Сумма цифр введённого числа</button>
+      <div id = 'task10_dropdown' class = 'task'>
+        <p>Введите число:</p>
+        <form onsubmit="task10(event)" class = 'task_form'>
+            <input type="number" required pattern="^[-+]?[0-9]+?(\.[0-9]$)" id="task10Input" step = any>
+            <div class="buttons">
+                <button class ="taskButton" type="submit">Result</button>
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask10Result')">Clear</button>
             </div>
-        </div>
-        <!--task11-->
-        <div id="task11Window">
-            <div class="taskWindowStyle">
-                <button type="button" class="closeButton" onclick="show('none', 'task11Window')">
-                    <i class="fa fa-window-close" aria-hidden="true"></i></button>
-                <p>Введите ссылки:</p>
-                <form>
-                    <textarea onblur="task11(event)" id="task11Input"></textarea>
-                    <div class="buttons">
-                        <button class ="clearButton" type="button" onclick="clearDiv('divTask11Result')">Clear</button>
-                    </div>
-                </form>
-                <div id="task11result"></div>
+        </form>
+        <div id="task10result" class = 'result'></div>
+      </div>
+      <!--task11-->
+      <button id = 'task11_button' type = 'button'>Удалить http:// и https:// из ссылок и вывести их отсортированным
+      по алфавиту списком ссылок</button>
+      <div id = 'task11_dropdown' class = 'task'>
+        <p>Введите ссылки:</p>
+        <form class = 'task_form'>
+            <textarea onblur="task11(event)" id="task11Input"></textarea>
+            <div class="buttons">
+                <button class ="clearButton" type="button" onclick="clearDiv('divTask11Result')">Clear</button>
             </div>
-        </div>
-        <ol class="ol">
-            <!--task1-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task1Window')">
-                    Сумма чисел от -1000 до 1000</a></li>
-            </div>
-            <!--task2-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task2Window')">
-                    Сумма чисел от -1000 до 1000, которые заканчиваются на 2,3, и 7</a></li>
-            </div>
-            <!--task3-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task3Window')">
-                    Вывести на страницу список из 50 элементо</a></li>
-            </div>
-            <!--task4-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task4Window')">
-                    Перевести секунды в формат: hh:mm:ss</a></li>
-            </div>
-            <!--task5-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task5Window')">
-                    Для указанного возраста вывести фразу вида "22 года"</a></li>
-            </div>
-            <!--task6-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task6Window')">
-                    Вычислить промежуток времени между датами</a></li>
-            </div>
-            <!--task7-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task7Window')">
-                    Определить знак зодиака</a></li>
-            </div>
-            <!--task8-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task8Window')">
-                    Вывести шахматную доску</a></li>
-            </div>
-            <!--task9-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task9Window')">
-                    Определить номер подъезда и этаж по номеру квартиры</a></li>
-            </div>
-            <!--task10-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task10Window')">
-                    Сумма цифр введённого числа</a></li>
-            </div>
-            <!--task11-->
-            <div class="task">
-                <li><a href="#" onclick="show('block', 'task11Window')">
-                    Удалить http:// и https:// из ссылок и вывести их отсортированным
-                    по алфавиту списком ссылок</a></li>
-            </div>
-        </ol>
+        </form>
+        <div id="task11result" class = 'result'></div>
+      </div>
     </div>
-</div>
-<div class="footer">
+  </div>
+<footer class="footer">
     <div class="footerContainer">
         <p>powered by VredniyTony</p>
     </div>
-</div>
-
+</footer>
 </body>
 </html>

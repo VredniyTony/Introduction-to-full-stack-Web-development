@@ -1,7 +1,38 @@
-function show(state, element) {
-    document.getElementById(element).style.display = state;
-    document.getElementById('wrap').style.display = state;
-}
+$(document).ready(() => {
+  $('#task1_button').on('click',() => {
+    $('#task1_dropdown').slideToggle('slow');
+    });
+  $('#task2_button').on('click',() => {
+    $('#task2_dropdown').slideToggle('slow');
+    });
+  $('#task3_button').on('click',() => {
+    $('#task3_dropdown').slideToggle('slow');
+    });
+  $('#task4_button').on('click',() => {
+    $('#task4_dropdown').slideToggle('slow');
+    });
+  $('#task5_button').on('click',() => {
+    $('#task5_dropdown').slideToggle('slow');
+    });
+  $('#task6_button').on('click',() => {
+    $('#task6_dropdown').slideToggle('slow');
+    });
+  $('#task7_button').on('click',() => {
+    $('#task7_dropdown').slideToggle('slow');
+    });
+  $('#task8_button').on('click',() => {
+    $('#task8_dropdown').slideToggle('slow');
+    });
+  $('#task9_button').on('click',() => {
+    $('#task9_dropdown').slideToggle('slow');
+    });
+  $('#task10_button').on('click',() => {
+    $('#task10_dropdown').slideToggle('slow');
+    });
+  $('#task11_button').on('click',() => {
+    $('#task11_dropdown').slideToggle('slow');
+  });
+});
 
 function clearDiv(taskForClear){
     const ELEM = document.getElementById(taskForClear);
@@ -196,7 +227,7 @@ function task8(event) {
 
     let size = INPUT_ELEMENT.split("x");
     let tmpCol = 'white', tmpRow = "white";
-    let chessSize = 480;
+    let chessSize = 960;
 
     if (parseInt(size[0]) >= parseInt(size[1])) {
         chessSize /= parseInt(size[0]);
@@ -298,6 +329,6 @@ function task11() {
         .map(link => link.replace(/https?:\/\//, ''))
         .sort()
         .reduce((ul,link)=>
-            ul + `<li><a href="//${link}">${link}</a></li>`, '');
+            ul + `<li><a href=//${link}>${link}</a></li>`, '');
     RESULT.innerHTML = links;
 }

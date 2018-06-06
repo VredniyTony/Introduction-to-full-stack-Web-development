@@ -1,24 +1,15 @@
-body, html{
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-}
-
-#wrap{
-    display: none;
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: rgba(1, 1, 1, 0.725);;
+body, html {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 .header{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 200px;
+    min-height: 200px;
     background-color: antiquewhite;
 }
 
@@ -27,6 +18,10 @@ body, html{
     flex-direction: row;
     width: 960px;
     background-color: rgba(255,255,255,0.5);
+  }
+
+#headerText > h1 {
+  font-size: 30px;
 }
 
 #logo{
@@ -41,14 +36,16 @@ body, html{
 }
 
 .content{
+    flex: 1 0 auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
     background-color: aliceblue;
 }
 
 .contentContainer{
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,22 +54,50 @@ body, html{
     background-color: rgba(255,255,255,0.5);
 }
 
-.taskWindowStyle{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    padding: 5px;
-    border: 3px solid rgb(255,255,255);
-    border-radius: 5px;
-    width: 480px;
-    background-color: antiquewhite;
+.contentContainer > button{
+  font-family: Arial;
+  text-decoration: none;
+  color: rgb(0,0,0);
+  background-color: antiquewhite;
+  font-size: 20px;
+  padding: 8px 10px;
+  border:none;
+  outline: none;
+  border: solid 1px white;
+  width: 100%;
+  height: 50px;
 }
 
-.taskWindowStyle > p{
-    font-size: 18px;
-    font-family: Arial;
-    text-decoration: solid;
+.contentContainer > button:active, .contentContainer > button:hover {
+    background-color: coral;
+}
+
+.task {
+  height: auto;
+  display: none;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.task > p {
+  color: black;
+  font-size: 20px;
+}
+
+.task_form > input {
+  border: 1px solid rgba(244, 110, 120, 0.5);
+  height: 20px;
+  border-radius: 5px;
+}
+
+.task_form > textarea {
+  height: 100px;
+  width: 100%;
+}
+
+.task_form > p {
+  font-size: 20px;
 }
 
 .taskButton{
@@ -88,61 +113,6 @@ body, html{
     margin: 20px auto;
 }
 
-.ol{
-    margin: 20px auto;
-    width: calc(100% - 50px);
-}
-
-.task{
-    font-family: Arial;
-    font-size: 18px;
-}
-
-li > a:link{
-    text-decoration: none;
-    display: inline-block;
-}
-
-li > a:visited {
-    color: black;
-}
-
-li > a:hover {
-    color: coral;
-}
-
-li > a:active {
-    color: white;
-}
-
-input{
-    border: 1px solid rgba(244, 110, 120, 0.5);
-    height: 20px;
-    border-radius: 5px;
-}
-
-.closeButton{
-    margin-left: auto;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, 0);
-    font-size: 20px;
-    border:none;
-    outline: none;
-}
-
-.closeButton > i{
-    font-size: 20px;
-}
-
-.buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .clearButton{
     font-family: Arial;
     text-decoration: none;
@@ -156,98 +126,22 @@ input{
     margin: 20px auto;
 }
 
-#task1Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-
-#task2Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-
-#task3Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-
-#divTask3Result{
-    line-height: 8px;
-}
-
-#task4Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-#task5Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-#task6Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-#task7Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-#divTask7Result{
-    height: auto;
-    width: 100%;
-}
-#task8Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-
-#divTask8Result{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 480px;
-    width: 480px;
-}
-
 .flexDivRow{
     display: flex;
     flex-direction: row;
 }
 
-#task9Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-#task10Window{
-    display: none;
-    width: 480px;
-    position: absolute;
-}
-#task11Window{
-    display: none;
-    width: 480px;
-    position: absolute;
+.result {
+  font-size: 20px;
 }
 
-#task11Input{
-    height: 100px;
-    width: calc(100% - 4px);
-}
-
-#divTask11Result{
-    overflow: hidden;
+#divTask7Result {
+  width: 960px;
+  height: auto;
 }
 
 .footer{
+  flex-shrink: 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
