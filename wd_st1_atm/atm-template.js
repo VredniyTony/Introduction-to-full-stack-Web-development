@@ -72,10 +72,9 @@ const ATM = {
         this.current_type = tmp_current_user.type;
         this.report_log.push(`${new Date()} ${this.current_user.number} logined`)
       } else if (tmp_current_user.pin !== pin) {
-        this.report_log.push(`${new Date()} ${this.current_user.number} type in incorrect pin`)
+        this.report_log.push(`${new Date()} ${number} type in incorrect pin`)
         console.log(this.messages[2]);
       }
-      delete tmp_current_user;
     },
     // check current debet
     check: function() {
@@ -140,7 +139,9 @@ const ATM = {
         return;
       } else {
         this.report_log.push(`${new Date()} Total ${this.cash} money`)
-        console.log(ATM.report_log);
+        this.report_log.reduce(function(total, currentValue){
+          console.log(currentValue);
+        });
       }
     },
     // log out
@@ -153,7 +154,6 @@ const ATM = {
         this.current_user = false;
         this.current_type = false;
         this.report_log.push(`${new Date()} ${tmp_current_user} logout`)
-        delete tmp_current_user;
         console.log(this.messages[9]);
       }
     }
