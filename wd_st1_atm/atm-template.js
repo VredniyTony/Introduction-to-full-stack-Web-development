@@ -143,7 +143,7 @@ const ATM = {
         return;
       } else {
         this.report_log.push(`${new Date()} Total ${this.cash} money`)
-        this.report_log.reduce(function(total, currentValue){
+        this.report_log.map(function(currentValue){
           console.log(currentValue);
         });
       }
