@@ -111,6 +111,11 @@ body, html {
   height: 40px;
 }
 
+#dropDownMenu > button:hover {
+  background-color: coral;
+  cursor: pointer;
+}
+
 .user_img {
   height: 30px;
   width: auto;

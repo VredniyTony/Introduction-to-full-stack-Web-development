@@ -13,8 +13,11 @@ const FRIENDS_LIST = [
 ]
 
 $(document).ready(() => {
+  createDropDown();
     $('#dropDown').click(function(){
-      $('#dropDownMenu').slideDown('slow');
+      $('#dropDownMenu').slideToggle('slow', function(){
+        $('#dropDownMenu').clearQueue();
+      });
     });
     $('#dropDown').blur(function(){
       $('#dropDownMenu').slideUp('slow');
@@ -28,14 +31,17 @@ $(document).ready(() => {
 });
 
 function filterFunction() {
+    const img = document.getElementById('img_header');
     const input = document.getElementById('dropDown');
     const filter = input.value.toUpperCase();
     const div = document.getElementById('dropDownMenu');
     const button = div.getElementsByTagName('button');
     const p = div.getElementsByTagName('p');
+    const input_length = p.length;
     for (let i = 0; i < p.length; i++) {
         if (p[i].innerHTML.toUpperCase().indexOf(filter) >= 0) {
             button[i].style.display = '';
+            img === null ? null : img.remove();
         } else {
             button[i].style.display = 'none';
         }
