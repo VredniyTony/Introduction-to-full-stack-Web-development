@@ -96,6 +96,9 @@ const ATM = {
         } else if (amount > this.cash) {
           this.report_log.push(`${new Date()} ${this.current_user.number} tried get money, but ATM haven't`)
           console.log(this.messages[7]);
+        } else if (amount <=0){
+          this.report_log.push(`${new Date()} ${this.current_user.number} enterred incorrect data`)
+          console.log(this.messages[8]);
         } else {
           this.current_user.debet -= amount;
           this.cash -= amount;
@@ -111,8 +114,9 @@ const ATM = {
     loadCash: function(amount){
       if(!this.check_user("user")) {
         return;
-      } else if (Number.isInteger(amount)){
+      } else if (Number.isInteger(amount) && amount >=0){
         this.current_user.debet += amount;
+        this.cash += amount;
         this.report_log.push(`${new Date()} ${this.current_user.number} load ${amount} money`)
         console.log(`You are load ${amount} money`);
       } else {
@@ -124,7 +128,7 @@ const ATM = {
     load_cash: function(addition) {
       if(!this.check_user("admin")) {
         return;
-      } else if (Number.isInteger(addition)){
+      } else if (Number.isInteger(addition) && amount >=0){
         this.cash += addition;
         this.report_log.push(`${new Date()} ${this.current_user.number} load ${addition} money`)
         console.log(`You are load ${addition} money`);
