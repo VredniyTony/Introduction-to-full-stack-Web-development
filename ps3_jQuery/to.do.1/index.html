@@ -2,10 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <script charset="UTF-8" lang="ru" src="assets/js/main.js"></script>
+    <link type="text/css" rel="stylesheet" href="assets/css/reset-css.css">
     <link type="text/css" rel="stylesheet" href="assets/css/main.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-    <title>WD_PS2 Javascript</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script charset="UTF-8" lang="ru" src="assets/js/main.js"></script>
+    <title>WD_PS3 jQuery</title>
 </head>
 <body>
 <div id="wrap"></div>
@@ -19,13 +20,15 @@
 </div>
 <div class="content">
     <div class="contentContainer">
-        <button class = "dropDown"></button>
-        <div class = "dropDownMenu">
-            <span>Anton</span>;
-            <span>Nikolay</span>;
-            <span>Dmitriy</span>;
-            <span>Anatoliy</span>;
+      <div class = 'dropDownHeader'>
+        <div id="user_img_header"></div>
+        <input type = "text" placeholder = "Select friend" id = "dropDown" onkeyup="filterFunction()"></input>
+        <div id = 'arrowDropDown'>
+          <p>&#8249;</p>
         </div>
+      </div>
+      <div id = "dropDownMenu">
+      </div>
     </div>
 </div>
 <div class="footer">
@@ -33,6 +36,6 @@
         <p>powered by VredniyTony</p>
     </div>
 </div>
-
+<script>createDropDown()</script>
 </body>
 </html>
