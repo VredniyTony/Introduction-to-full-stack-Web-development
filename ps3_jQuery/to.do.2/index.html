@@ -10,17 +10,18 @@
     <script charset="UTF-8" lang="ru" src="assets/js/main.js"></script>
 </head>
 <body>
+<i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true" id = 'to_top'></i>
 <div class="header">
     <div class="container">
         <img id="logo" src="assets/images/logo.png" alt="N++">
         <div class="button-header">
-            <a href="index.html">PRODUCTS</a>
-            <a href="index.html">ABOUT US</a>
-            <a href="index.html">CONTACT US</a>
+            <a href="#product" class="header_link">PRODUCTS</a>
+            <a href="#aboutUs" class="header_link">ABOUT US</a>
+            <a href="#contactUs" class="header_link">CONTACT US</a>
         </div>
     </div>
 </div>
-<div class="section-overview">
+<div class="section-overview" id = 'product'>
     <div class="container">
         <div class="section-left">
             <img id="phone" src="assets/images/phone.png" alt="phone">
@@ -35,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="section-description">
+<div class="section-description" id = 'aboutUs'>
     <div class="container">
         <div class="section-description-container">
             <div class="article">
@@ -71,7 +72,7 @@
         </div>
     </div>
 </div>
-<div class="footer">
+<div class="footer" id = 'contactUs'>
     <div class="container">
         <div class="footer-container">
             <h1 id="title-footer">Contact us!</h1>
