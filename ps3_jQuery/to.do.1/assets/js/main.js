@@ -1,32 +1,33 @@
 function createDropDown() {
-  FRIENDS_LIST.reduce(createUser);
+    FRIENDS_LIST.reduce(createUser);
 }
 
 const FRIENDS_LIST = [
-  {name: 'Vika', img: 'female'},
-  {name: 'Nikolay', img: 'male'},
-  {name: 'Sveta', img: 'female'},
-  {name: 'Dmitriy', img: 'male'},
-  {name: 'Anatoliy', img: 'male'},
-  {name: 'Nastya', img: 'female'},
-  {name: 'Max', img: 'male'}
+    {name: 'Vika', img: 'female'},
+    {name: 'Nikolay', img: 'male'},
+    {name: 'Sveta', img: 'female'},
+    {name: 'Dmitriy', img: 'male'},
+    {name: 'Anatoliy', img: 'male'},
+    {name: 'Nastya', img: 'female'},
+    {name: 'Max', img: 'male'}
 ]
 
 $(document).ready(() => {
-  createDropDown();
+    createDropDown();
     $('#dropDown').click(function(){
-      $('#dropDownMenu').slideToggle('slow', function(){
-        $('#dropDownMenu').clearQueue();
-      });
+        $('#dropDownMenu').slideToggle('slow', function(){
+            $('#dropDownMenu').clearQueue();
+        });
     });
     $('#dropDown').blur(function(){
-      $('#dropDownMenu').slideUp('slow');
+        $('#dropDownMenu').slideUp('slow');
     });
     $('.users').click(function(){
-      const text = $(this).text();
-      const ico = $(this).find('img').attr('src');
-      $('#dropDown').val(text);
-      document.getElementById('img_header') === (null) ? createUserImg(ico) : $('#img_header').attr('src', ico);
+        $('#dropDownMenu').slideUp('slow');
+        const text = $(this).text();
+        const ico = $(this).find('img').attr('src');
+        $('#dropDown').val(text);
+        document.getElementById('img_header') === (null) ? createUserImg(ico) : $('#img_header').attr('src', ico);
     });
 });
 
@@ -38,7 +39,7 @@ function filterFunction() {
     const button = div.getElementsByTagName('button');
     const p = div.getElementsByTagName('p');
     const input_length = p.length;
-    for (let i = 0; i < p.length; i++) {
+    for (let i = 0; i < input_length; i++) {
         if (p[i].innerHTML.toUpperCase().indexOf(filter) >= 0) {
             button[i].style.display = '';
             img === null ? null : img.remove();
@@ -49,24 +50,24 @@ function filterFunction() {
 }
 
 function createUserImg(src) {
-  const div = document.getElementById('user_img_header');
-  const ico = document.createElement('img');
-  ico.setAttribute('id', 'img_header');
-  ico.setAttribute('src', src);
-  div.appendChild(ico);
+    const div = document.getElementById('user_img_header');
+    const ico = document.createElement('img');
+    ico.setAttribute('id', 'img_header');
+    ico.setAttribute('src', src);
+    div.appendChild(ico);
 }
 
 function createUser(total, currentValue) {
-  const drop_down = document.getElementById('dropDownMenu');
-  const elem = document.createElement('button');
-  elem.setAttribute('class', 'users');
-  drop_down.appendChild(elem);
-  const user_img = document.createElement('img');
-  user_img.setAttribute('class', 'user_img');
-  user_img.setAttribute('src', `assets/images/${currentValue.img}.ico`);
-  elem.appendChild(user_img);
-  const user_name = document.createElement('p');
-  user_name.setAttribute('class', 'user_name');
-  user_name.innerText = currentValue.name;
-  elem.appendChild(user_name);
+    const drop_down = document.getElementById('dropDownMenu');
+    const elem = document.createElement('button');
+    elem.setAttribute('class', 'users');
+    drop_down.appendChild(elem);
+    const user_img = document.createElement('img');
+    user_img.setAttribute('class', 'user_img');
+    user_img.setAttribute('src', `assets/images/${currentValue.img}.ico`);
+    elem.appendChild(user_img);
+    const user_name = document.createElement('p');
+    user_name.setAttribute('class', 'user_name');
+    user_name.innerText = currentValue.name;
+    elem.appendChild(user_name);
 }
