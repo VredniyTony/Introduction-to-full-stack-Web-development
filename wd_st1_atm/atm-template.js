@@ -118,11 +118,13 @@ const ATM = {
 
     // load cash - available for user only
     loadCash: function(amount){
-        if(this.check_user("user") && Number.isInteger(amount)) {
-            this.current_user.debet += amount;
-            this.cash += amount;
-            this.report_log.push(`${ATM.get_date()} ${this.current_user.number} load ${amount} money`);
-            console.log(`You are load ${amount} money`);
+        if(this.check_user("user")){
+            if(Number.isInteger(amount)) {
+                this.current_user.debet += amount;
+                this.cash += amount;
+                this.report_log.push(`${ATM.get_date()} ${this.current_user.number} load ${amount} money`);
+                console.log(`You are load ${amount} money`);
+            }
         } else {
             this.report_log.push(`${ATM.get_date()} ${this.current_user.number} enterred incorrect data`);
             console.log(this.messages[8]);
@@ -131,10 +133,12 @@ const ATM = {
 
     // load cash to ATM - available for admin only - EXTENDED
     load_cash: function(addition) {
-        if(this.check_user("admin") && (Number.isInteger(addition) && addition >=0)) {
-            this.cash += addition;
-            this.report_log.push(`${ATM.get_date()} ${this.current_user.number} load ${addition} money`);
-            console.log(`You are load ${addition} money`);
+        if(this.check_user("admin")){
+            if(Number.isInteger(addition) && addition >=0) {
+                this.cash += addition;
+                this.report_log.push(`${ATM.get_date()} ${this.current_user.number} load ${addition} money`);
+                console.log(`You are load ${addition} money`);
+            }
         } else {
             this.report_log.push(`${ATM.get_date()} ${this.current_user.number} enterred incorrect data`);
             console.log(this.messages[8]);
