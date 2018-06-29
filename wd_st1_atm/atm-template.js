@@ -40,10 +40,9 @@ const ATM = {
     ],
 
     //change date format
-    get_date: function(){
+    get_date: function() {
         let full_date = new Date();
-        let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        return `${full_date.getDate()}/${month[full_date.getMonth()]}/${full_date.getFullYear()} ${full_date.getHours()}:${full_date.getMinutes()}:${full_date.getSeconds()}`;
+        return full_date.toLocaleString();
     },
 
     //check user validity
@@ -56,10 +55,9 @@ const ATM = {
             this.report_log.push(`${ATM.get_date()} ${this.current_user.number} blocked using unaccess function`);
             console.log(`${this.messages[4]} ${user}`);
             return false;
-        } else if (user === " "){
+        } else {
             return true;
         }
-        return true;
     },
 
     // authorization
@@ -147,7 +145,7 @@ const ATM = {
     getReport: function() {
         if(this.check_user("admin")) {
             this.report_log.push(`${ATM.get_date()} Total ${this.cash} money`);
-            this.report_log.map(function(currentValue){
+            this.report_log.forEach(function(currentValue){
                 console.log(currentValue);
             });
         }
