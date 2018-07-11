@@ -1,32 +1,56 @@
 $(document).ready(function(){
-    $('.header_link').on('click', function(event) {
-        event.preventDefault();
-        let hash = this.hash;
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 400, function(){
-            window.location.hash = hash;
+    const page = $('html, body');
+    const pageOn = function(){
+        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+            page.stop();
         });
+    };
+    const pageOff = function(){
+        page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+    };
+    const scrollSpeed = 400;
+
+    $('.header_link').click(function(event) {
+        event.preventDefault();
+        pageOn();
+        const element = this.hash;
+        const elementHeight = $(element).height();
+        const windowHeight = $(window).height();
+        if (elementHeight > windowHeight){
+            page.animate({
+                scrollTop: $(element).offset().top,
+            }, scrollSpeed, function () {
+                pageOff();
+            });
+        } else {
+            page.animate({
+                scrollTop: $(element).offset().top - windowHeight / 2 + elementHeight / 2
+            }, scrollSpeed, function () {
+                pageOff();
+            });
+        }
     });
 
     if ($('#to_top').length) {
-        let toTop = function () {
-            let scrollTop = $ (window).scrollTop();
-            if (scrollTop > 10) {
+        pageOn();
+        const toTop = function () {
+            if ($(window).scrollTop() > 10) {
                 $('#to_top').addClass('show');
             } else {
                 $('#to_top').removeClass('show');
             }
         };
         toTop ();
-        $(window).on('scroll', function(){
+        $(window).scroll(function(){
             toTop ();
         } );
-        $('#to_top').on ('click', function(event){
+        $('#to_top').click(function(event){
             event.preventDefault ();
-            $('html,body').animate({
+            page.animate({
                 scrollTop: 0
-            }, 400);
+            }, scrollSpeed, function () {
+                pageOff();
+            });
         } );
     }
 });

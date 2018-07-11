@@ -10,7 +10,7 @@ const FRIENDS_LIST = [
     {name: 'Anatoliy', img: 'male'},
     {name: 'Nastya', img: 'female'},
     {name: 'Max', img: 'male'}
-]
+];
 
 $(document).ready(() => {
     createDropDown();

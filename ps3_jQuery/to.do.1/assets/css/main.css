@@ -1,8 +1,8 @@
 body, html {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .header{
@@ -17,9 +17,9 @@ body, html {
     flex-direction: row;
     width: 960px;
     background-color: rgba(255,255,255,0.5);
-  }
+}
 #headerText > h1 {
-  font-size: 30px;
+    font-size: 30px;
 }
 #logo{
     margin: 10px;
@@ -49,84 +49,84 @@ body, html {
 }
 
 .dropDownHeader {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  background-color: antiquewhite;
-  width: 480px;
-  height: 50px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    background-color: antiquewhite;
+    width: 480px;
+    height: 50px;
 }
 #user_img_header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
 }
 #img_header {
-  height: 40px;
-  width: 40px;
+    height: 40px;
+    width: 40px;
 }
 #arrowDropDown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  width: 30px;
-  height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    width: 30px;
+    height: 50px;
 }
 .dropDownHeader > input {
-  font-family: Arial;
-  text-decoration: none;
-  color: black;
-  background-color: antiquewhite;
-  font-size: 20px;
-  border: none;
-  padding: 0;
-  width: 400px;
-  height: 50px;
+    font-family: Arial;
+    text-decoration: none;
+    color: black;
+    background-color: antiquewhite;
+    font-size: 20px;
+    border: none;
+    padding: 0;
+    width: 400px;
+    height: 50px;
 }
 
 #dropDown:focus {
-  outline: none;
+    outline: none;
 }
 
 #dropDownMenu {
-  display: none;
-  flex-direction: column;
-  width: 480px;
+    display: none;
+    flex-direction: column;
+    width: 480px;
 }
 
 #dropDownMenu > button {
-  display: flex;
-  align-items: center;
-  font-family: Arial;
-  text-decoration: none;
-  color: black;
-  background-color: aliceblue;
-  font-size: 20px;
-  border: 1px solid white;
-  outline: none;
-  width: 480px;
-  height: 40px;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+    text-decoration: none;
+    color: black;
+    background-color: aliceblue;
+    font-size: 20px;
+    border: 1px solid white;
+    outline: none;
+    width: 480px;
+    height: 40px;
 }
 
 #dropDownMenu > button:hover {
-  background-color: coral;
-  cursor: pointer;
+    background-color: coral;
+    cursor: pointer;
 }
 
 .user_img {
-  height: 30px;
-  width: auto;
+    height: 30px;
+    width: auto;
 }
 
 .user_name {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 .footer{
-  flex-shrink: 0;
+    flex-shrink: 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
