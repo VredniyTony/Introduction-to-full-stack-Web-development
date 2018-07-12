@@ -38,7 +38,7 @@ body, html {
     align-items: center;
     background-color: aliceblue;
 }
-.contentContainer{
+#contentContainer{
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
@@ -48,81 +48,78 @@ body, html {
     background-color: rgba(255,255,255,0.5);
 }
 
-.dropDownHeader {
-    margin-top: 20px;
+#dropDownHeader{
     display: flex;
     flex-direction: row;
-    background-color: antiquewhite;
-    width: 480px;
-    height: 50px;
-}
-#user_img_header{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
-}
-#img_header {
-    height: 40px;
-    width: 40px;
-}
-#arrowDropDown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    width: 30px;
-    height: 50px;
-}
-.dropDownHeader > input {
-    font-family: Arial;
-    text-decoration: none;
-    color: black;
-    background-color: antiquewhite;
-    font-size: 20px;
-    border: none;
-    padding: 0;
     width: 400px;
     height: 50px;
-}
-
-#dropDown:focus {
-    outline: none;
-}
-
-#dropDownMenu {
-    display: none;
-    flex-direction: column;
-    width: 480px;
-}
-
-#dropDownMenu > button {
-    display: flex;
-    align-items: center;
-    font-family: Arial;
-    text-decoration: none;
-    color: black;
-    background-color: aliceblue;
-    font-size: 20px;
+    margin-top: 50px;
+    padding: 0;
+    background-color: antiquewhite;
     border: 1px solid white;
     outline: none;
-    width: 480px;
-    height: 40px;
 }
 
-#dropDownMenu > button:hover {
+#dropDownHeader:hover {
     background-color: coral;
     cursor: pointer;
 }
 
-.user_img {
-    height: 30px;
+#dropDownHeaderImg{
+    width: 50px;
+    height: 50px;
+}
+
+#userImgHeader{
+    height: 45px;
     width: auto;
 }
 
-.user_name {
-    padding-left: 10px;
+#dropDownText{
+    text-align: left;
+    font-size: 18px;
+    width: 315px;
+    margin-left: 5px;
+}
+
+#dropDownArrow{
+    font-size: 18px;
+    width: 21px;
+}
+
+#dropDownMenu{
+    display: none;
+    flex-direction: column;
+    width: 400px;
+}
+
+.userButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    background-color: antiquewhite;
+    border: 1px solid white;
+    outline: none;
+}
+
+.userButton:hover {
+    background-color: coral;
+    cursor: pointer;
+}
+
+.userImg{
+    height: 30px;
+    width: auto;
+    margin-left: 5px;
+}
+
+.userName{
+    margin-left: 5px;
+    font-size: 16px;
 }
 
 .footer{
