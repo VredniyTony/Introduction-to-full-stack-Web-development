@@ -6,14 +6,19 @@ ps1_html-css{
 }
 
 ps2_javascript-basics{
-	to.do.1 - working
+	to.do.1 - success
 }
 
 ps3_jQuery {
 	to.do.1 - working
-	to.do.1 -
+	to.do.1 - working
 }
 
 wd_st1_atm {
-	working
+	to.do.1 - success
+}
+
+wd_ps4-php-json {
+	to.do.1 - working
+	to.do.2 - working
 }
