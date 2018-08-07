@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+.slider .slider-previews {
+    padding: 0;
+}
+
 .slider .slider-previews li {
     display: inline-block;
     list-style-type: none;
