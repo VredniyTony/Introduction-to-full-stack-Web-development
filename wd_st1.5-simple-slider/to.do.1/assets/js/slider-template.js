@@ -16,7 +16,6 @@ $(function () {
     const slider_current = $('.slider-current img');
 
     create_slider_preview();
-    $('.slider-previews li').first().addClass('current');
 
     $('.slider-previews li img').click(function() {
         change_slider_current($(this).parent().index());
@@ -32,6 +31,7 @@ $(function () {
             list_of_li += `<li><img src="${API_URL}${SMALL_SIZE}${currentValue}"></li>`;
         }, 0);
         slider_previews.append(list_of_li);
+        $('.slider-previews li').first().addClass('current');
     }
 
     function change_slider_current(index) {
