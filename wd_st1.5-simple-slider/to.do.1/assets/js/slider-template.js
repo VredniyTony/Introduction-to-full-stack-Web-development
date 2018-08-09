@@ -11,8 +11,7 @@ const IMAGES = [
     '?image=1039'
 ];
 
-$(document).ready(function() {
-
+$(function () {
     const slider_previews = $('.slider-previews');
     const slider_current = $('.slider-current img');
 
@@ -28,11 +27,11 @@ $(document).ready(function() {
     });
 
     function create_slider_preview() {
-        IMAGES.map(function (total, currentValue) {
-            slider_previews.append($('<li>')
-                .append($('<img>')
-                    .attr('src', API_URL + SMALL_SIZE + IMAGES[currentValue])))
-        })
+        let list_of_li = "";
+        IMAGES.reduce(function (accumulator, currentValue) {
+            list_of_li += `<li><img src="${API_URL}${SMALL_SIZE}${currentValue}"></li>`;
+        }, 0);
+        slider_previews.append(list_of_li);
     }
 
     function change_slider_current(index) {
@@ -43,12 +42,10 @@ $(document).ready(function() {
 
     function arrow_control(event) {
         let li_current = $('.slider-previews li.current').index();
-        if (event.which === 37) {
-            li_current === 0 ? li_current = 5 : li_current -=1;
-        } else if (event.which === 39) {
-            li_current === 5 ? li_current = 0 : li_current +=1;
+        switch (event.which) {
+            case 37: li_current === 0 ? li_current = (IMAGES.length - 1) : li_current -=1; break;
+            case 39: li_current === (IMAGES.length - 1) ? li_current = 0 : li_current +=1
         }
         change_slider_current(li_current);
     }
 });
-
