@@ -14,10 +14,19 @@ const IMAGES = [
 $(function () {
     const slider_previews = $('.slider-previews');
     const slider_current = $('.slider-current img');
+    const images_length = IMAGES.length - 1;
 
+    const create_slider_preview = function(){
+        const list_of_li =IMAGES.reduce(function (accumulator, currentValue) {
+            const new_element = `<li><img src="${API_URL}${SMALL_SIZE}${currentValue}"></li>`;
+            return accumulator + new_element;
+        }, "");
+        slider_previews.append(list_of_li);
+        slider_previews.find('li').first().addClass('current');
+    };
     create_slider_preview();
 
-    $('.slider-previews li img').click(function() {
+    slider_previews.find('img').click(function() {
         change_slider_current($(this).parent().index());
     });
 
@@ -25,26 +34,17 @@ $(function () {
         arrow_control(event);
     });
 
-    function create_slider_preview() {
-        let list_of_li = "";
-        IMAGES.reduce(function (accumulator, currentValue) {
-            list_of_li += `<li><img src="${API_URL}${SMALL_SIZE}${currentValue}"></li>`;
-        }, 0);
-        slider_previews.append(list_of_li);
-        $('.slider-previews li').first().addClass('current');
-    }
-
     function change_slider_current(index) {
-        $('.slider-previews li').removeClass('current')
+        slider_previews.find('li').removeClass('current')
             .eq(index).addClass('current');
         slider_current.attr('src', API_URL + BIG_SIZE + IMAGES[index]);
     }
 
     function arrow_control(event) {
-        let li_current = $('.slider-previews li.current').index();
+        let li_current = slider_previews.find('li.current').index();
         switch (event.which) {
-            case 37: li_current === 0 ? li_current = (IMAGES.length - 1) : li_current -=1; break;
-            case 39: li_current === (IMAGES.length - 1) ? li_current = 0 : li_current +=1
+            case 37: li_current === 0 ? li_current = images_length : li_current -=1; break;
+            case 39: li_current === images_length ? li_current = 0 : li_current +=1
         }
         change_slider_current(li_current);
     }
