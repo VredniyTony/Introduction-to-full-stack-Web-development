@@ -1,6 +1,6 @@
 <?php
 session_start();
-$config = require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'config.php';
+$config = require realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +24,9 @@ $config = require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY
     <div class='contentContainer'>
         <form action="assets/php/handler.php" method="post">
             <h1 id="title">Your favorite notebook brand:</h1>
-            <div id="Brands">
+            <div id="brands">
                 <?php
-                echo require $config['brand_list'];
+                require $config['brand_list'];
                 ?>
                 <!--                <label>-->
                 <!--                    <input type="radio" name="brand" checked/>-->

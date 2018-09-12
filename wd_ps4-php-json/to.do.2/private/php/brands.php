@@ -1,6 +1,6 @@
 <?php
 
-return array(
+$brands = array(
     "Msi",
     "Lenovo",
     "HP",
@@ -11,3 +11,5 @@ return array(
     "Samsung",
     "Razer"
 );
+
+return $brands;
