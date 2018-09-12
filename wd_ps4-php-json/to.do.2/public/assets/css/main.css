@@ -1,0 +1,83 @@
+body, html {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 200px;
+    background-color: antiquewhite;
+}
+
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+    width: 960px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+#logo{
+    margin: 10px;
+    height: 180px;
+    width: auto;
+}
+
+#headerText > h1 {
+    font-size: 30px;
+}
+
+#headerText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content{
+    flex: 1 0 auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.contentContainer{
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 960px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+#Brands{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.footer{
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 50px;
+    background-color: antiquewhite;
+}
+
+.footerContainer{
+    width: 960px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.footerContainer > p{
+    float: right;
+    margin: 10px;
+    font-size: 12px;
+}

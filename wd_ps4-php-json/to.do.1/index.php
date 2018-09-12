@@ -1,6 +1,5 @@
 <?php
 session_start();
-ini_set('memory_limit', '-1');
 ?>
 <!DOCTYPE html>
 <html lang = 'ru'>
@@ -23,8 +22,9 @@ ini_set('memory_limit', '-1');
     <div class = 'contentContainer'>
         <!--task1-->
         <h1 class="task">Сумма чисел от -1000 до 1000</h1>
-        <form action="assets/templates/sum.php" method="post">
-            <input type="submit" name="sum" value="Результат" class="submitTask"/>
+        <form action="assets/templates/functions.php" method="post">
+            <input type="hidden" name="task" value="sum">
+            <input type="submit" value="Результат" class="submitTask"/>
         </form>
         <div class="result">
             <?php
@@ -35,8 +35,9 @@ ini_set('memory_limit', '-1');
         </div>
         <!--task2-->
         <h1 class="task">Сумма чисел от -1000 до 1000, которые заканчиваются на 2,3, и 7</h1>
-        <form action="assets/templates/sum237.php" method="post">
-            <input type="submit" name="sum237" value="Результат" class="submitTask"/>
+        <form action="assets/templates/functions.php" method="post">
+            <input type="hidden" name="task" value="sum237">
+            <input type="submit" value="Результат" class="submitTask"/>
         </form>
         <div class="result">
             <?php
@@ -47,8 +48,9 @@ ini_set('memory_limit', '-1');
         </div>
         <!--task3-->
         <h1 class="task">Вывести на страницу список из 50 элементо</h1>
-        <form action="assets/templates/tree.php" method="post">
-            <input type="submit" name="tree" value="Результат" class="submitTask"/>
+        <form action="assets/templates/functions.php" method="post">
+            <input type="hidden" name="task" value="tree">
+            <input type="submit" value="Результат" class="submitTask"/>
         </form>
         <div class="result">
             <?php
@@ -59,8 +61,9 @@ ini_set('memory_limit', '-1');
         </div>
         <!--task4-->
         <h1 class="task">Шахматная доска</h1>
-        <form action="assets/templates/chessTable.php" method="post">
-            <input type="text" pattern="\d{1,3}[x]\d{1,3}" placeholder="999x999" name="chessTable" class="taskForm" required/>
+        <form action="assets/templates/functions.php" method="post">
+            <input type="hidden" name="task" value="chessTable">
+            <input type="text" pattern="\d{1,3}[x]\d{1,3}" placeholder="999x999" name="chessTableData" class="taskForm" required/>
             <input type="submit" value="Результат" class="submitTask"/>
         </form>
         <div class="result">
@@ -72,8 +75,9 @@ ini_set('memory_limit', '-1');
         </div>
         <!--task5-->
         <h1 class="task">Сумма цифр введённого числа</h1>
-        <form action="assets/templates/sumNumbers.php" method="post">
-            <input type="number" name="sumNumbers" class="taskForm"/>
+        <form action="assets/templates/functions.php" method="post">
+            <input type="hidden" name="task" value="sumNumbers"/>
+            <input type="number" name="numbers" placeholder="-123456789" class="taskForm" required/>
             <input type="submit" value="Результат" class="submitTask"/>
         </form>
         <div class="result">
@@ -85,8 +89,9 @@ ini_set('memory_limit', '-1');
         </div>
         <!--task6-->
         <h1 class="task">Массив рандомных целых чисел(100)</h1>
-        <form action="assets/templates/randomArray.php" method="post">
-            <input type="submit" name="randomArray" value="Результат" class="submitTask"/>
+        <form action="assets/templates/functions.php" method="post">
+            <input type="hidden" name="task" value="randomArray"/>
+            <input type="submit" value="Результат" class="submitTask"/>
         </form>
         <div class="result">
             <?php
