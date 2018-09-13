@@ -1,6 +1,6 @@
 <?php
 session_start();
-$config = require realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'config.php';
+$config = require_once realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,16 +22,16 @@ $config = require realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR) . DIRECTORY_S
 </div>
 <div class='content'>
     <div class='contentContainer'>
-        <form action="assets/php/handler.php" method="post">
-            <h1 id="title">Your favorite notebook brand:</h1>
+        <form action="../private/php/handler.php" method="post">
+            <?php $brands_list = json_decode(file_get_contents($config['brand_list'])); ?>
+            <h1 id="title"><?= $brands_list->title ?></h1>
             <div id="brands">
-                <?php
-                require $config['brand_list'];
-                ?>
-                <!--                <label>-->
-                <!--                    <input type="radio" name="brand" checked/>-->
-                <!--                    <span>Msi</span>-->
-                <!--                </label>-->
+                <?php foreach ($brands_list->brands as $key => $value) : ?>
+                    <label>
+                        <input type="radio" name="brand" />
+                        <span><?= $value ?></span>
+                    </label>
+                <?php endforeach ?>
 
                 <input type="submit" id="submitBrands">
         </form>

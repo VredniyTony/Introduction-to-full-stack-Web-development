@@ -1,6 +1,6 @@
-<?php
-
-$brands = array(
+{
+  "title": "Your favorite notebook brands:",
+  "brands": [
     "Msi",
     "Lenovo",
     "HP",
@@ -10,6 +10,5 @@ $brands = array(
     "Apple",
     "Samsung",
     "Razer"
-);
-
-return $brands;
+  ]
+}

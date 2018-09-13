@@ -1,10 +1,10 @@
 <?php
-define('ROOT_PATH', realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . '..') . DIRECTORY_SEPARATOR);
-define('PRIVATE_PATH', ROOT_PATH . 'private' . DIRECTORY_SEPARATOR);
-define('PUBLIC_PATH', ROOT_PATH . 'public' . DIRECTORY_SEPARATOR);
+define('D_SEP', DIRECTORY_SEPARATOR);
+define('ROOT_PATH', realpath(dirname(__DIR__) . D_SEP . '..') . D_SEP);
+define('PRIVATE_PATH', ROOT_PATH . 'private' . D_SEP);
+define('PUBLIC_PATH', ROOT_PATH . 'public' . D_SEP);
 
 return [
-    'voted_brands' => PRIVATE_PATH . 'json' . DIRECTORY_SEPARATOR . 'voted_brands',
-    'brand_list' => PRIVATE_PATH . 'php' . DIRECTORY_SEPARATOR . 'brands.php',
-    'json' => PRIVATE_PATH . 'php' . DIRECTORY_SEPARATOR . 'json.php'
+    'brand_list' => PRIVATE_PATH . 'json' . D_SEP . 'brands.json',
+    'handler' => PRIVATE_PATH . 'php' . D_SEP . 'handler.php'
 ];
