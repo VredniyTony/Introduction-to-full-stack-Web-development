@@ -6,5 +6,4 @@ define('PUBLIC_PATH', ROOT_PATH . 'public' . D_SEP);
 
 return [
     'brand_list' => PRIVATE_PATH . 'json' . D_SEP . 'brands.json',
-    'handler' => PRIVATE_PATH . 'php' . D_SEP . 'handler.php'
 ];

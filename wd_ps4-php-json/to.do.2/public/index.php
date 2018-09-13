@@ -1,6 +1,7 @@
 <?php
 session_start();
-$config = require_once realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'config.php';
+$config = require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'php'
+    . DIRECTORY_SEPARATOR . 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,19 +23,20 @@ $config = require_once realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR) . DIRECT
 </div>
 <div class='content'>
     <div class='contentContainer'>
-        <form action="../private/php/handler.php" method="post">
+        <form action="assets/php/handler.php" method="post">
             <?php $brands_list = json_decode(file_get_contents($config['brand_list'])); ?>
             <h1 id="title"><?= $brands_list->title ?></h1>
             <div id="brands">
                 <?php foreach ($brands_list->brands as $key => $value) : ?>
-                    <label>
-                        <input type="radio" name="brand" />
+                    <label class="radio_vote">
+                        <input type="radio" name="vote" value=<?= $value ?>>
                         <span><?= $value ?></span>
                     </label>
                 <?php endforeach ?>
 
-                <input type="submit" id="submitBrands">
+                <input type="submit">
         </form>
+        <?php session_destroy() ?>
     </div>
 </div>
 <footer class="footer">

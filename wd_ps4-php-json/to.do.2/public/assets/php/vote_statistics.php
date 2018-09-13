@@ -1,12 +1,17 @@
 <?php
 session_start();
+$config = require_once realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
+    . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'config.php';
 ?>
+
 <!DOCTYPE html>
 <html lang='ru'>
 <head>
     <meta charset='UTF-8'>
     <link type='text/css' rel='stylesheet' href='../css/reset_css.css'>
     <link type='text/css' rel='stylesheet' href='../css/main.css'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../js/google_charts.js"></script>
     <title>WD_PS4 PHP, JSON(warm-up)</title>
 </head>
 <body>
@@ -20,10 +25,7 @@ session_start();
 </div>
 <div class='content'>
     <div class='contentContainer'>
-        <form>
-            <h1 id="title">Statistic:</h1>
-            <div id="Brands"></div>
-        </form>
+        <div id="statistic"></div>
     </div>
 </div>
 <footer class="footer">
