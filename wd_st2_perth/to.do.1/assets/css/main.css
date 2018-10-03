@@ -1,34 +1,250 @@
-.container{
+body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
-#meet_perth{
+.container {
     width: 960px;
-    min-height: 495px;
+}
+
+#meet_perth {
+    width: 960px;
+    height: 495px;
     background-image: url("../images/blue-pattern.jpg");
 }
 
-#header_nav{
+#header_nav {
     display: flex;
     flex-direction: row;
 }
 
-#logo{
+#meet_perth_content{
+    display: flex;
+    flex-direction: row;
+}
+
+#meet_perth_text {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+#meet_perth_text > h1 {
+    float: right;
+    font-size: 40px;
+    color: white;
+}
+
+#meet_perth_button{
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    font-size: 15px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border: solid 1px white;
+    width: 170px;
+    height: auto;
+}
+
+#logo {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 75px;
     height: 75px;
+    margin-left: 125px;
     background-color: white;
-    box-shadow: 10px 10px rgba(0,0,0,0.1);
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-#logo > span{
+#logo > span {
 
 }
 
-#header_menu{
+#header_menu {
 
+}
+
+#meet_perth_phone{
+    align-self: flex-end;
+    height: 250px;
+}
+
+#longwinded {
+    display: flex;
+    flex-direction: row;
+    height: 495px;
+    background-color: #F6F0E8;
+}
+
+#longwinded_text{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 100px;
+    max-width: 50%;
+}
+
+#longwinded_text > h1{
+    font-size: 40px;
+}
+
+#longwinded_text > p{
+    margin-top: 20px;
+}
+
+#longwinded_button{
+    text-decoration: none;
+    color: green;
+    background-color: transparent;
+    font-size: 15px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border: solid 1px green;
+    width: 170px;
+    height: auto;
+    margin-top: 50px;
+}
+
+#longwinded_phone{
+    align-self: flex-end;
+    height: 350px;
+
+}
+
+#dog_up {
+    display: flex;
+    flex-direction: row;
+    height: 495px;
+    background-color: #F9FCFF;
+}
+
+#dog_up_phones {
+    align-self: flex-end;
+    width: 620px;
+}
+
+#dog_up_text {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: flex-end;
+    margin-top: 70px;
+    height: 400px;
+}
+
+#dog_up_text > h1{
+    font-size: 30px;
+    margin: 10px;
+}
+
+#dog_up_text > p{
+    margin: 10px;
+}
+
+#dog_up_button {
+    text-decoration: none;
+    color: red;
+    background-color: transparent;
+    font-size: 15px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border: solid 1px red;
+    width: 170px;
+    height: auto;
+    margin-top: 40px;
+}
+
+#buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 245px;
+    background-image: url("../images/green-pattern.jpg");
+}
+
+#buy_elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#buy_elements > h1 {
+    font-size: 30px;
+    color: white;
+}
+
+#buy_button {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    font-size: 15px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border: solid 1px white;
+    width: 170px;
+    height: auto;
+}
+
+#contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 495px;
+    background-color: #F9FCFF;
+}
+
+#contacts_elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#social_ico {
+    display: inline-flex;
+    font-size: 22px;
+    justify-content: center;
+}
+
+.icon-circle {
+    width: 35px;
+    height: 35px;
+    margin: 15px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 100%;
+    color: gray;
+    border: 3px solid gray;
+}
+
+#subscribing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#subscribing > input {
+    border: none;
+    outline: none;
+    background-color: white;
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
 }
