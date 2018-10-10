@@ -11,7 +11,8 @@ $config = require_once realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . '..' . 
     <link type='text/css' rel='stylesheet' href='../css/reset_css.css'>
     <link type='text/css' rel='stylesheet' href='../css/main.css'>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="../js/google_charts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/google_charts.js"></script>
     <title>WD_PS4 PHP, JSON(warm-up)</title>
 </head>
 <body>
@@ -19,7 +20,7 @@ $config = require_once realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . '..' . 
     <div class='headerContainer'>
         <img id='logo' src='../images/logo.jpg' about='Ivanov Anton'>
         <div id='headerText'>
-            <h1>Домашняя работa "WD_PS4 PHP, JSON(vote)"</h1>
+            <h1>Problem set "WD_PS4 PHP, JSON(vote)"</h1>
         </div>
     </div>
 </div>

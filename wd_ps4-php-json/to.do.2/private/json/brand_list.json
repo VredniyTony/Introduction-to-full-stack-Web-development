@@ -1,7 +1,14 @@
-[
-  { "name" : "Msi", "value" : "25" },
-  { "name" : "HP", "value" : "11" },
-  { "name" : "Dell", "value" : "20" },
-  { "name" : "Asus", "value" : "21" }
-
-]
+{
+  "title": "Your favorite notebook brand:",
+  "brands": [
+    "Msi",
+    "Lenovo",
+    "HP",
+    "Dell",
+    "Acer",
+    "Asus",
+    "Apple",
+    "Samsung",
+    "Razer"
+  ]
+}
