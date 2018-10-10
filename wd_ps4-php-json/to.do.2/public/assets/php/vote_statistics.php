@@ -26,7 +26,20 @@ $config = require_once realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . '..' . 
 </div>
 <div class='content'>
     <div class='contentContainer'>
-        <div id="statistic"></div>
+        <?php
+        require_once $config['json'];
+        check_json($config['brand_list']);
+
+        if (isset($_SESSION['error_msg'])) {
+            $msg = $_SESSION['error_msg'];
+            echo "<h1 id='error_msg'>$msg</h1>";
+        } else {
+            ?>
+            <div id="statistic"></div>
+            <?php
+        }
+        session_destroy();
+        ?>
     </div>
 </div>
 <footer class="footer">
