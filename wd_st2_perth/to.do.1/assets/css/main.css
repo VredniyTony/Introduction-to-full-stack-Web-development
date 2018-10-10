@@ -22,17 +22,26 @@ body {
 
 #meet_perth_content{
     display: flex;
+    height: 420px;
     flex-direction: row;
+}
+
+#meet_perth_phone{
+    align-self: flex-end;
+    height: 250px;
+    margin-left: 200px;
 }
 
 #meet_perth_text {
     display: flex;
     flex-direction: column;
-    align-self: flex-end;
+    align-self: flex-start;
+    justify-self: right;
 }
 
 #meet_perth_text > h1 {
-    float: right;
+    align-self: flex-end;
+    margin-top: 50px;
     font-size: 40px;
     color: white;
 }
@@ -48,6 +57,7 @@ body {
     border: solid 1px white;
     width: 170px;
     height: auto;
+    align-self: flex-end;
 }
 
 #logo {
@@ -67,11 +77,6 @@ body {
 
 #header_menu {
 
-}
-
-#meet_perth_phone{
-    align-self: flex-end;
-    height: 250px;
 }
 
 #longwinded {
