@@ -10,7 +10,9 @@ body {
 }
 
 #meet_perth {
-    width: 960px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     height: 495px;
     background-image: url("../images/blue-pattern.jpg");
 }
@@ -81,7 +83,8 @@ body {
 
 #longwinded {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    width: 100%;
     height: 495px;
     background-color: #F6F0E8;
 }
@@ -124,7 +127,8 @@ body {
 
 #dog_up {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    width: 100%;
     height: 495px;
     background-color: #F9FCFF;
 }
@@ -168,8 +172,8 @@ body {
 
 #buy {
     display: flex;
-    align-items: center;
     justify-content: center;
+    width: 100%;
     height: 245px;
     background-image: url("../images/green-pattern.jpg");
 }
@@ -201,8 +205,8 @@ body {
 
 #contacts {
     display: flex;
-    align-items: center;
     justify-content: center;
+    width: 100%;
     height: 495px;
     background-color: #F9FCFF;
 }
@@ -249,7 +253,7 @@ body {
 
 #footer {
     display: flex;
-    align-items: center;
     justify-content: center;
+    width: 100%;
     height: 100px;
 }
